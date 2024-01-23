@@ -128,8 +128,8 @@ MonoBehaviour:
         m_MethodName: ApplyToAllButton
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 245837153}
-          m_ObjectArgumentAssemblyTypeName: ListManager, GameScripts
+          m_ObjectArgument: {fileID: 5220008236085146550}
+          m_ObjectArgumentAssemblyTypeName: ListManagerController, GameScripts
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2090,6 +2090,7 @@ GameObject:
   - component: {fileID: 5594275009598124427}
   - component: {fileID: 5594275009598124468}
   - component: {fileID: 245837153}
+  - component: {fileID: 5220008236085146550}
   m_Layer: 5
   m_Name: ListPanel
   m_TagString: Untagged
@@ -2172,11 +2173,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1fe9a62947818a47b4eb02de3808857, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rowList: []
-  listElementsContainer: {fileID: 5594275009547443945}
   listElementPrefab: {fileID: 5620418583177397557, guid: 1d3ebce9b32de6c408689d502f752d49, type: 3}
+  listElementsContainer: {fileID: 5594275009547443945}
   positionsPanel: {fileID: 6343386930287420073}
-  seniorityCount: {fileID: 805446320126345754}
+  seniorityPanel: {fileID: 805446320126345754}
+  listManagerController: {fileID: 5220008236085146550}
+--- !u!114 &5220008236085146550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5594275009598124470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6e3342236bfa3142b6ba7b9acae4d29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rowList: []
+  listManagerView: {fileID: 245837153}
 --- !u!1 &5594275010446052772
 GameObject:
   m_ObjectHideFlags: 0

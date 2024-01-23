@@ -5,21 +5,23 @@ using UnityEngine.TestTools;
 
 public class TestUI
 {
-    private ListManager listManager;
+    private ListManagerView listManager;
+    private ListManagerController listManagerController;
 
     [SetUp]
     public void Setup()
     {
         var listObject = GameObject.Instantiate(Resources.Load<GameObject>("Prefabs/ListPanel"));
-        listManager = listObject.GetComponent<ListManager>();
+        listManagerController = listObject.GetComponent<ListManagerController>();
+        listManager = listObject.GetComponent<ListManagerView>();
     }
 
     // A Test behaves as an ordinary method
     [Test]
     public void TestUIListManager()
     {
-        Assert.IsNotNull(listManager);
-        Assert.IsNotNull(listManager.rowList);
+        Assert.IsNotNull(listManagerController);
+        Assert.IsNotNull(listManagerController.rowList);
     }
 
     [Test]
@@ -27,7 +29,7 @@ public class TestUI
     {
         GenerateChallengeList();
 
-        var infoRow = listManager.rowList[0].GetComponent<InfoRow>();
+        var infoRow = listManagerController.rowList[0].GetComponent<InfoRow>();
         Assert.IsNotNull(infoRow);
     }
 
@@ -36,16 +38,16 @@ public class TestUI
     {
         GenerateChallengeList();
 
-        Assert.AreEqual(251, listManager.rowList.Count);
+        Assert.AreEqual(251, listManagerController.rowList.Count);
     }
 
     [Test]
     public void TestUIRandomListButton()
     {
-        listManager.Init();
+        listManagerController.Init();
         listManager.GenerateRandomListButton();
 
-        Assert.Greater(listManager.rowList.Count, 0);
+        Assert.Greater(listManagerController.rowList.Count, 0);
     }
 
     [Test]
@@ -54,10 +56,10 @@ public class TestUI
         GenerateChallengeList();
 
         listManager.OrderByPositionButton();
-        var rowList = listManager.rowList;
+        var rowList = listManagerController.rowList;
 
         Assert.AreEqual(PositionType.HR, rowList[0].GetComponent<InfoRow>().employee.position.Position);
-        Assert.AreEqual(PositionType.CEO, rowList[listManager.rowList.Count - 1].GetComponent<InfoRow>().employee.position.Position);
+        Assert.AreEqual(PositionType.CEO, rowList[listManagerController.rowList.Count - 1].GetComponent<InfoRow>().employee.position.Position);
     }
 
     [Test]
@@ -66,10 +68,10 @@ public class TestUI
         GenerateChallengeList();
 
         listManager.OrderBySeniorityButton();
-        var rowList = listManager.rowList;
+        var rowList = listManagerController.rowList;
 
         Assert.AreEqual(SeniorityType.Junior, rowList[0].GetComponent<InfoRow>().employee.seniority.Seniority);
-        Assert.AreEqual(SeniorityType.Senior, rowList[listManager.rowList.Count - 1].GetComponent<InfoRow>().employee.seniority.Seniority);
+        Assert.AreEqual(SeniorityType.Senior, rowList[listManagerController.rowList.Count - 1].GetComponent<InfoRow>().employee.seniority.Seniority);
     }
 
     [Test]
@@ -77,17 +79,17 @@ public class TestUI
     {
         GenerateChallengeList();
 
-        var rowList = listManager.rowList;
+        var rowList = listManagerController.rowList;
 
         IApplyPercentToAll apply = new ApplyPercentToInfoRowsUI();
-        apply.ApplyPercentageToAllRows(listManager);
+        apply.ApplyPercentageToAllRows(listManagerController);
 
         Assert.Greater(rowList[0].GetComponent<InfoRow>().employee.currentSalary, rowList[0].GetComponent<InfoRow>().employee.baseSalary.BaseSalary);
     }
 
     private void GenerateChallengeList()
     {
-        listManager.Init();
+        listManagerController.Init();
         listManager.GenerateChallengeListButton();
     }
 

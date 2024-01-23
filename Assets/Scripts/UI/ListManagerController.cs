@@ -1,18 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
-public class ListManager : MonoBehaviour
+public class ListManagerController : MonoBehaviour
 {
     public List<GameObject> rowList;
-    public Transform listElementsContainer;
-    public GameObject listElementPrefab;
-    public PositionsCount positionsPanel;
-    public SeniorityCount seniorityCount;
-
     IEmployeesList employeesListInstance;
     IEmployeesListSort employeesListSortInstance;
+    [SerializeField] ListManagerView listManagerView;
 
     void Start()
     {
@@ -26,14 +21,12 @@ public class ListManager : MonoBehaviour
         rowList = new List<GameObject>();
     }
 
-    private void PopulateList()
+    private void PopulateList(IEmployeesList employeesList)
     {
-        foreach(var employe in employeesListInstance.employeesList)
+        foreach (var employee in employeesList.employeesList)
         {
-            var element = Instantiate(listElementPrefab, listElementsContainer).GetComponent<InfoRow>();
-            element.Init(employe);
-
-            rowList.Add(element.gameObject);
+            var rowObject = listManagerView.CreateRowItem(employee);
+            rowList.Add(rowObject);
         }
     }
 
@@ -47,15 +40,7 @@ public class ListManager : MonoBehaviour
         rowList.Clear();
     }
 
-    private void GenerateEmployeesUI(IEmployeesList employeesList)
-    {
-        CleanList();
-        PopulateList();
-        positionsPanel.ShowUI(employeesList);
-        seniorityCount.ShowUI(employeesList);
-    }
-
-    public void GenerateChallengeListButton()
+    public void GenerateChallengeList()
     {
         CreateEmployessGenerationTest create = new CreateEmployessGenerationTest();
         employeesListInstance.employeesList = create.GenerateEmployeesForTest();
@@ -63,10 +48,13 @@ public class ListManager : MonoBehaviour
         employeesListSortInstance.SortBySeniority(employeesListInstance);
         employeesListSortInstance.SortByPosition(employeesListInstance);
 
-        GenerateEmployeesUI(employeesListInstance);
+        CleanList();
+        PopulateList(employeesListInstance);
+
+        listManagerView.GenerateEmployeesUI(employeesListInstance);
     }
 
-    public void GenerateRandomListButton()
+    public void GenerateRandomList()
     {
         CreateEmployessGenerationTest create = new CreateEmployessGenerationTest();
         employeesListInstance.employeesList = create.GenerateRandomEmployeesForTest();
@@ -74,18 +62,29 @@ public class ListManager : MonoBehaviour
         employeesListSortInstance.SortBySeniority(employeesListInstance);
         employeesListSortInstance.SortByPosition(employeesListInstance);
 
-        GenerateEmployeesUI(employeesListInstance);
+        CleanList();
+        PopulateList(employeesListInstance);
+
+        listManagerView.GenerateEmployeesUI(employeesListInstance);
     }
 
-    public void OrderByPositionButton()
+    public void OrderByPosition()
     {
         employeesListSortInstance.SortByPosition(employeesListInstance);
-        GenerateEmployeesUI(employeesListInstance);
+
+        CleanList();
+        PopulateList(employeesListInstance);
+
+        listManagerView.GenerateEmployeesUI(employeesListInstance);
     }
 
-    public void OrderBySeniorityButton()
+    public void OrderBySeniority()
     {
         employeesListSortInstance.SortBySeniority(employeesListInstance);
-        GenerateEmployeesUI(employeesListInstance);
-    }    
+
+        CleanList();
+        PopulateList(employeesListInstance);
+
+        listManagerView.GenerateEmployeesUI(employeesListInstance);
+    }
 }

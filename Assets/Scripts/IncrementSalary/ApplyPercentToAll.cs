@@ -1,13 +1,13 @@
 public interface IApplyPercentToAll
 {
-    void ApplyPercentageToAllRows(ListManager listManager);
+    void ApplyPercentageToAllRows(ListManagerController listManagerController);
 }
 
 public class ApplyPercentToInfoRowsUI : IApplyPercentToAll
 {
-    public void ApplyPercentageToAllRows(ListManager listManager)
+    public void ApplyPercentageToAllRows(ListManagerController listManagerController)
     {
-        foreach (var row in listManager.rowList)
+        foreach (var row in listManagerController.rowList)
         {
             var infoRow = row.GetComponent<InfoRow>();
 

@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class ApplyPercentageToAllButton : MonoBehaviour
 {
-    public void ApplyToAllButton(ListManager listManager)
+    public void ApplyToAllButton(ListManagerController listManagerController)
     {
         IApplyPercentToAll applyPercent = new ApplyPercentToInfoRowsUI();
-        applyPercent.ApplyPercentageToAllRows(listManager);
+        applyPercent.ApplyPercentageToAllRows(listManagerController);
     }
 }
