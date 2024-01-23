@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09678a9516984f9498a9cf84d8e899f8, type: 3}
+  m_Name: BasySalaryConfig
+  m_EditorClassIdentifier: 
+  SalaryBaseSalaryArtistSemiSenior: 1200
+  SalaryBaseSalaryArtistSenior: 2000
+  SalaryBaseSalaryCEO: 20000
+  SalaryBaseSalaryDesignJunior: 800
+  SalaryBaseSalaryDesignSenior: 2000
+  SalaryBaseSalaryEngineeringJunior: 1500
+  SalaryBaseSalaryEngineeringSemiSenior: 3000
+  SalaryBaseSalaryEngineeringSenior: 5000
+  SalaryBaseSalaryHRJunior: 0.5
+  SalaryBaseSalaryHRSemiSenior: 2
+  SalaryBaseSalaryHRSenior: 5
+  SalaryBaseSalaryPMSemiSenior: 5
+  SalaryBaseSalaryPMSenior: 10
