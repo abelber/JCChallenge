@@ -84,7 +84,7 @@ public class TestUI
         IApplyPercentToAll apply = new ApplyPercentToInfoRowsUI();
         apply.ApplyPercentageToAllRows(listManagerController);
 
-        Assert.Greater(rowList[0].GetComponent<InfoRow>().employee.currentSalary, rowList[0].GetComponent<InfoRow>().employee.baseSalary.BaseSalary);
+        Assert.Greater(rowList[0].GetComponent<InfoRow>().employee.currentSalary, rowList[0].GetComponent<InfoRow>().employee.baseSalary);
     }
 
     private void GenerateChallengeList()

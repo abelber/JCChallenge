@@ -2,24 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class BaseSalaryData
+{
+    public PositionType position;
+    public SeniorityType seniority;
+    public float salaryValue;
+}
+
 [CreateAssetMenu(menuName = "Employees/Base Salary")]
 public class BaseSalaryConfiguration : ScriptableObject
 {
-    [SerializeField] float SalaryBaseSalaryArtistSemiSenior;
-    [SerializeField] float SalaryBaseSalaryArtistSenior;
-    [SerializeField] float SalaryBaseSalaryCEO;
-    [SerializeField] float SalaryBaseSalaryDesignJunior;
-    [SerializeField] float SalaryBaseSalaryDesignSenior;
-    [SerializeField] float SalaryBaseSalaryEngineeringJunior;
-    [SerializeField] float SalaryBaseSalaryEngineeringSemiSenior;
-    [SerializeField] float SalaryBaseSalaryEngineeringSenior;
-    [SerializeField] float SalaryBaseSalaryHRJunior;
-    [SerializeField] float SalaryBaseSalaryHRSemiSenior;
-    [SerializeField] float SalaryBaseSalaryHRSenior;
-    [SerializeField] float SalaryBaseSalaryPMSemiSenior;
-    [SerializeField] float SalaryBaseSalaryPMSenior;
+    [SerializeField] List<BaseSalaryData> baseSalaryList = new List<BaseSalaryData>();
 
-    private void Awake()
+    public float GetBaseSalary(PositionType position, SeniorityType seniority)
     {
+        var key = position.ToString() + seniority.ToString();
+        foreach(var data in baseSalaryList)
+        {
+            if(data.position == position && data.seniority == seniority)
+            {
+                    return data.salaryValue;
+            }
+        }
+
+        return 0;
     }
 }

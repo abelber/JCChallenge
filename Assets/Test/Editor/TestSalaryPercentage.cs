@@ -193,8 +193,8 @@ public class TestSalaryPercentage
 
     private void CheckResult(float expectedResult, IEmployee employee)
     {
-        Debug.Log(employee.position.Position.ToString() + " - " + employee.seniority.Seniority.ToString() + " / Salary Percentage: " + employee.salaryPercentage.IncrementPercentage);
-        Assert.AreEqual(expectedResult, employee.salaryPercentage.IncrementPercentage);
+        Debug.Log(employee.position.Position.ToString() + " - " + employee.seniority.Seniority.ToString() + " / Salary Percentage: " + employee.salaryPercentage);
+        Assert.AreEqual(expectedResult, employee.salaryPercentage);
     }
 
     // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use

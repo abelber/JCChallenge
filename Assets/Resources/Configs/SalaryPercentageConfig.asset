@@ -9,19 +9,46 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: f5820fa71bb0ac147b20abedaf2f8d1c, type: 3}
   m_Name: SalaryPercentageConfig
   m_EditorClassIdentifier: GameScripts::SalaryPercentageConfig
-  SalaryPercentArtistSemiSenior: 2.5
-  SalaryPercentArtistSenior: 5
-  SalaryPercentCEO: 100
-  SalaryPercentDesignJunior: 4
-  SalaryPercentDesignSenior: 7
-  SalaryPercentEngineeringJunior: 5
-  SalaryPercentEngineeringSemiSenior: 7
-  SalaryPercentEngineeringSenior: 10
-  SalaryPercentHRJunior: 0.5
-  SalaryPercentHRSemiSenior: 2
-  SalaryPercentHRSenior: 5
-  SalaryPercentPMSemiSenior: 5
-  SalaryPercentPMSenior: 10
+  baseSalaryList:
+  - position: 0
+    seniority: 0
+    salaryValue: 0.5
+  - position: 0
+    seniority: 1
+    salaryValue: 2
+  - position: 0
+    seniority: 2
+    salaryValue: 5
+  - position: 1
+    seniority: 0
+    salaryValue: 5
+  - position: 1
+    seniority: 1
+    salaryValue: 7
+  - position: 1
+    seniority: 2
+    salaryValue: 10
+  - position: 2
+    seniority: 1
+    salaryValue: 2.5
+  - position: 2
+    seniority: 2
+    salaryValue: 5
+  - position: 3
+    seniority: 0
+    salaryValue: 4
+  - position: 3
+    seniority: 2
+    salaryValue: 7
+  - position: 4
+    seniority: 1
+    salaryValue: 5
+  - position: 4
+    seniority: 2
+    salaryValue: 10
+  - position: 5
+    seniority: 2
+    salaryValue: 100

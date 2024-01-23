@@ -6,43 +6,48 @@ public class CreateEmployessGenerationTest
     public List<IEmployee> GenerateEmployeesForTest()
     {
         var list = new List<IEmployee>();
-        CreateEmployees create = new CreateEmployees();
 
-        list.AddRange(create.CreateEmployee(13, "Name JR", new BaseSalaryHRJunior(), new PositionHR(), new SeniorityJunior(), new SalaryPercentHRJunior()));
-        list.AddRange(create.CreateEmployee(2, "Name SSr", new BaseSalaryHRSemiSenior(), new PositionHR(), new SenioritySemiSenior(), new SalaryPercentHRSemiSenior()));
-        list.AddRange(create.CreateEmployee(5, "Name Sr", new BaseSalaryHRSenior(), new PositionHR(), new SenioritySenior(), new SalaryPercentHRSenior()));
-        list.AddRange(create.CreateEmployee(32, "Name Jr", new BaseSalaryEngineeringJunior(), new PositionEngineering(), new SeniorityJunior(), new SalaryPercentEngineeringJunior()));
-        list.AddRange(create.CreateEmployee(68, "Name SSr", new BaseSalaryEngineeringSemiSenior(), new PositionEngineering(), new SenioritySemiSenior(), new SalaryPercentEngineeringSemiSenior()));
-        list.AddRange(create.CreateEmployee(50, "Name Sr", new BaseSalaryEngineeringSenior(), new PositionEngineering(), new SenioritySenior(), new SalaryPercentEngineeringSenior()));
-        list.AddRange(create.CreateEmployee(20, "Name SSr", new BaseSalaryArtistSemiSenior(), new PositionArtist(), new SenioritySemiSenior(), new SalaryPercentArtistSemiSenior()));
-        list.AddRange(create.CreateEmployee(5, "Name Sr", new BaseSalaryArtistSenior(), new PositionArtist(), new SenioritySenior(), new SalaryPercentArtistSenior()));
-        list.AddRange(create.CreateEmployee(15, "Name Jr", new BaseSalaryDesignJunior(), new PositionDesign(), new SeniorityJunior(), new SalaryPercentDesignJunior()));
-        list.AddRange(create.CreateEmployee(10, "Name Sr", new BaseSalaryDesignSenior(), new PositionDesign(), new SenioritySenior(), new SalaryPercentDesignSenior()));
-        list.AddRange(create.CreateEmployee(20, "Name SSr", new BaseSalaryPMSemiSenior(), new PositionPM(), new SenioritySemiSenior(), new SalaryPercentPMSemiSenior()));
-        list.AddRange(create.CreateEmployee(10, "Name Sr", new BaseSalaryPMSenior(), new PositionPM(), new SenioritySenior(), new SalaryPercentPMSenior()));
-        list.Add(new Employee("Name CEO", new BaseSalaryCEO(), new PositionCEO(), new SenioritySenior(), new SalaryPercentCEO()));
+        EmployeeFactory itemFactory = new EmployeeFactory();
+        itemFactory.Init();
+
+        list.AddRange(itemFactory.CreateEmployeesGroup(13, PositionType.HR, SeniorityType.Junior));
+        list.AddRange(itemFactory.CreateEmployeesGroup(2, PositionType.HR, SeniorityType.SemiSenior));
+        list.AddRange(itemFactory.CreateEmployeesGroup(5, PositionType.HR, SeniorityType.Senior));
+        list.AddRange(itemFactory.CreateEmployeesGroup(32, PositionType.Engineering, SeniorityType.Junior));
+        list.AddRange(itemFactory.CreateEmployeesGroup(68, PositionType.Engineering, SeniorityType.SemiSenior));
+        list.AddRange(itemFactory.CreateEmployeesGroup(50, PositionType.Engineering, SeniorityType.Senior));
+        list.AddRange(itemFactory.CreateEmployeesGroup(20, PositionType.Artist, SeniorityType.SemiSenior));
+        list.AddRange(itemFactory.CreateEmployeesGroup(5, PositionType.Artist, SeniorityType.Senior));
+        list.AddRange(itemFactory.CreateEmployeesGroup(15, PositionType.Design, SeniorityType.Junior));
+        list.AddRange(itemFactory.CreateEmployeesGroup(10, PositionType.Design, SeniorityType.Senior));
+        list.AddRange(itemFactory.CreateEmployeesGroup(20, PositionType.PM, SeniorityType.SemiSenior));
+        list.AddRange(itemFactory.CreateEmployeesGroup(10, PositionType.PM, SeniorityType.Senior));
+        list.Add(itemFactory.Create(PositionType.CEO, SeniorityType.Senior));
 
         return list;
     }
-
+    
     public List<IEmployee> GenerateRandomEmployeesForTest()
     {
         var list = new List<IEmployee>();
         CreateEmployees create = new CreateEmployees();
 
-        list.AddRange(create.CreateEmployee(Random.Range(0, 45), "Name JR", new BaseSalaryHRJunior(), new PositionHR(), new SeniorityJunior(), new SalaryPercentHRJunior()));
-        list.AddRange(create.CreateEmployee(Random.Range(0, 45), "Name SSr", new BaseSalaryHRSemiSenior(), new PositionHR(), new SenioritySemiSenior(), new SalaryPercentHRSemiSenior()));
-        list.AddRange(create.CreateEmployee(Random.Range(0, 45), "Name Sr", new BaseSalaryHRSenior(), new PositionHR(), new SenioritySenior(), new SalaryPercentHRSenior()));
-        list.AddRange(create.CreateEmployee(Random.Range(0, 45), "Name Jr", new BaseSalaryEngineeringJunior(), new PositionEngineering(), new SeniorityJunior(), new SalaryPercentEngineeringJunior()));
-        list.AddRange(create.CreateEmployee(Random.Range(0, 45), "Name SSr", new BaseSalaryEngineeringSemiSenior(), new PositionEngineering(), new SenioritySemiSenior(), new SalaryPercentEngineeringSemiSenior()));
-        list.AddRange(create.CreateEmployee(Random.Range(0, 45), "Name Sr", new BaseSalaryEngineeringSenior(), new PositionEngineering(), new SenioritySenior(), new SalaryPercentEngineeringSenior()));
-        list.AddRange(create.CreateEmployee(Random.Range(0, 45), "Name SSr", new BaseSalaryArtistSemiSenior(), new PositionArtist(), new SenioritySemiSenior(), new SalaryPercentArtistSemiSenior()));
-        list.AddRange(create.CreateEmployee(Random.Range(0, 45), "Name Sr", new BaseSalaryArtistSenior(), new PositionArtist(), new SenioritySenior(), new SalaryPercentArtistSenior()));
-        list.AddRange(create.CreateEmployee(Random.Range(0, 45), "Name Jr", new BaseSalaryDesignJunior(), new PositionDesign(), new SeniorityJunior(), new SalaryPercentDesignJunior()));
-        list.AddRange(create.CreateEmployee(Random.Range(0, 45), "Name Sr", new BaseSalaryDesignSenior(), new PositionDesign(), new SenioritySenior(), new SalaryPercentDesignSenior()));
-        list.AddRange(create.CreateEmployee(Random.Range(0, 45), "Name SSr", new BaseSalaryPMSemiSenior(), new PositionPM(), new SenioritySemiSenior(), new SalaryPercentPMSemiSenior()));
-        list.AddRange(create.CreateEmployee(Random.Range(0, 45), "Name Sr", new BaseSalaryPMSenior(), new PositionPM(), new SenioritySenior(), new SalaryPercentPMSenior()));
-        list.Add(new Employee("Name CEO", new BaseSalaryCEO(), new PositionCEO(), new SenioritySenior(), new SalaryPercentCEO()));
+        EmployeeFactory itemFactory = new EmployeeFactory();
+        itemFactory.Init();
+
+        list.AddRange(itemFactory.CreateEmployeesGroup(Random.Range(0, 45), PositionType.HR, SeniorityType.Junior));
+        list.AddRange(itemFactory.CreateEmployeesGroup(Random.Range(0, 45), PositionType.HR, SeniorityType.SemiSenior));
+        list.AddRange(itemFactory.CreateEmployeesGroup(Random.Range(0, 45), PositionType.HR, SeniorityType.Senior));
+        list.AddRange(itemFactory.CreateEmployeesGroup(Random.Range(0, 45), PositionType.Engineering, SeniorityType.Junior));
+        list.AddRange(itemFactory.CreateEmployeesGroup(Random.Range(0, 45), PositionType.Engineering, SeniorityType.SemiSenior));
+        list.AddRange(itemFactory.CreateEmployeesGroup(Random.Range(0, 45), PositionType.Engineering, SeniorityType.Senior));
+        list.AddRange(itemFactory.CreateEmployeesGroup(Random.Range(0, 45), PositionType.Artist, SeniorityType.SemiSenior));
+        list.AddRange(itemFactory.CreateEmployeesGroup(Random.Range(0, 45), PositionType.Artist, SeniorityType.Senior));
+        list.AddRange(itemFactory.CreateEmployeesGroup(Random.Range(0, 45), PositionType.Design, SeniorityType.Junior));
+        list.AddRange(itemFactory.CreateEmployeesGroup(Random.Range(0, 45), PositionType.Design, SeniorityType.Senior));
+        list.AddRange(itemFactory.CreateEmployeesGroup(Random.Range(0, 45), PositionType.PM, SeniorityType.SemiSenior));
+        list.AddRange(itemFactory.CreateEmployeesGroup(Random.Range(0, 45), PositionType.PM, SeniorityType.Senior));
+        list.Add(itemFactory.Create(PositionType.CEO, SeniorityType.Senior));
 
         return list;
     }

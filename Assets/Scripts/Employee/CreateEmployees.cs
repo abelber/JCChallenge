@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 public class CreateEmployees
 {
-    public List<IEmployee> CreateEmployee(int quantity, string name, IBaseSalary baseSalary, IPosition position, ISeniority seniority, ISalaryPercentage salaryPercentage)
+    public List<IEmployee> CreateEmployee(int quantity, string name, float baseSalary, IPosition position, ISeniority seniority, float salaryPercentage)
     {
         var list = new List<IEmployee>();
         for (int i = 0; i < quantity; i++)

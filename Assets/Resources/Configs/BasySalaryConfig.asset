@@ -12,16 +12,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09678a9516984f9498a9cf84d8e899f8, type: 3}
   m_Name: BasySalaryConfig
   m_EditorClassIdentifier: 
-  SalaryBaseSalaryArtistSemiSenior: 1200
-  SalaryBaseSalaryArtistSenior: 2000
-  SalaryBaseSalaryCEO: 20000
-  SalaryBaseSalaryDesignJunior: 800
-  SalaryBaseSalaryDesignSenior: 2000
-  SalaryBaseSalaryEngineeringJunior: 1500
-  SalaryBaseSalaryEngineeringSemiSenior: 3000
-  SalaryBaseSalaryEngineeringSenior: 5000
-  SalaryBaseSalaryHRJunior: 0.5
-  SalaryBaseSalaryHRSemiSenior: 2
-  SalaryBaseSalaryHRSenior: 5
-  SalaryBaseSalaryPMSemiSenior: 5
-  SalaryBaseSalaryPMSenior: 10
+  baseSalaryList:
+  - position: 0
+    seniority: 0
+    salaryValue: 500
+  - position: 0
+    seniority: 1
+    salaryValue: 1000
+  - position: 0
+    seniority: 2
+    salaryValue: 1500
+  - position: 1
+    seniority: 0
+    salaryValue: 1500
+  - position: 1
+    seniority: 1
+    salaryValue: 3000
+  - position: 1
+    seniority: 2
+    salaryValue: 5000
+  - position: 2
+    seniority: 1
+    salaryValue: 1200
+  - position: 2
+    seniority: 2
+    salaryValue: 2000
+  - position: 3
+    seniority: 0
+    salaryValue: 800
+  - position: 3
+    seniority: 2
+    salaryValue: 2000
+  - position: 4
+    seniority: 1
+    salaryValue: 2400
+  - position: 4
+    seniority: 2
+    salaryValue: 4000
+  - position: 5
+    seniority: 2
+    salaryValue: 20000
+  BaseSalaryArtistSemiSenior: 0
+  BaseSalaryArtistSenior: 0
+  BaseSalaryCEO: 0
+  BaseSalaryDesignJunior: 0
+  BaseSalaryDesignSenior: 0
+  BaseSalaryEngineeringJunior: 0
+  BaseSalaryEngineeringSemiSenior: 0
+  BaseSalaryEngineeringSenior: 0
+  BaseSalaryHRJunior: 0
+  BaseSalaryHRSemiSenior: 0
+  BaseSalaryHRSenior: 0
+  BaseSalaryPMSemiSenior: 0
+  BaseSalaryPMSenior: 0
