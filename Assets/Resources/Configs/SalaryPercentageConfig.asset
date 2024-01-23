@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: SalaryPercentageConfig
+  m_EditorClassIdentifier: GameScripts::SalaryPercentageConfig
+  SalaryPercentArtistSemiSenior: 2.5
+  SalaryPercentArtistSenior: 5
+  SalaryPercentCEO: 100
+  SalaryPercentDesignJunior: 4
+  SalaryPercentDesignSenior: 7
+  SalaryPercentEngineeringJunior: 5
+  SalaryPercentEngineeringSemiSenior: 7
+  SalaryPercentEngineeringSenior: 10
+  SalaryPercentHRJunior: 0.5
+  SalaryPercentHRSemiSenior: 2
+  SalaryPercentHRSenior: 5
+  SalaryPercentPMSemiSenior: 5
+  SalaryPercentPMSenior: 10
