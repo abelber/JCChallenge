@@ -13,12 +13,12 @@ public class SalaryPercentageData
 [CreateAssetMenu(menuName = "Employees/Salary Percentages")]
 public class SalaryPercentageConfiguration : ScriptableObject
 {
-    [SerializeField] List<SalaryPercentageData> baseSalaryList = new List<SalaryPercentageData>();
+    [SerializeField] List<SalaryPercentageData> percentageList = new List<SalaryPercentageData>();
 
     public float GetSalaryPercentage(PositionType position, SeniorityType seniority)
     {
         var key = position.ToString() + seniority.ToString();
-        foreach (var data in baseSalaryList)
+        foreach (var data in percentageList)
         {
             if (data.position == position && data.seniority == seniority)
             {

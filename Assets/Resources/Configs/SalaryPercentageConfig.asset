@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5820fa71bb0ac147b20abedaf2f8d1c, type: 3}
   m_Name: SalaryPercentageConfig
   m_EditorClassIdentifier: GameScripts::SalaryPercentageConfig
-  baseSalaryList:
+  percentageList:
   - position: 0
     seniority: 0
     salaryValue: 0.5
